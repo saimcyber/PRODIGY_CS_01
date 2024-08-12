@@ -1,13 +1,13 @@
 alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z']
-
+#This are the alphabets for which we will find index vaalue and add or sub shift key from it for encryption and decryprion respectively
 def encryption(plain_text,shift_key):
     cipher_text=""
     for char in plain_text:
         position=alphabet.index(char)
-        new_position=position+shift_key
+        new_position=(position+shift_key)%26 #MOD 26 BECAUSE WE HAVE ONLY 26 CHARACTERS AND WANT TO STAY WITHIN RANGE
         cipher_text +=alphabet[new_position]
     print(f"Here is the text after encryption: {cipher_text}")
-
+#HERE THE ENCRYPTION FUNCTION IS COMPLETED.
 
 
 
