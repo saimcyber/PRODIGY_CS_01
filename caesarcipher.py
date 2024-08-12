@@ -19,12 +19,15 @@ def decryption(cipher_text,shift_key):
 #DECRYPTION FINCTION FINALLY COMPLETED
 
 
-
-
-what_to_do=input("type 'encrypt' for encryption and type 'decrypt' for decryption:\n")
-text=input("Type your message:\n")
-shift=int(input("Enter shift key:\n"))
-if what_to_do=="encrypt":
-    result=encryption(plain_text=text,shift_key=shift)
-elif what_to_do=="decrypt":
-    decryption(text,shift)
+want_to_end=False
+while not want_to_end:
+    what_to_do=input("type 'encrypt' for encryption and type 'decrypt' for decryption:\n")
+    text=input("Type your message:\n")
+    shift=int(input("Enter shift key:\n"))
+    if what_to_do=="encrypt":
+        result=encryption(plain_text=text,shift_key=shift)
+    elif what_to_do=="decrypt":
+            decryption(text,shift)
+    again=input("type 'yes' to continue, type 'no' to end : \n")
+    if again=='no':
+        want_to_end=True
