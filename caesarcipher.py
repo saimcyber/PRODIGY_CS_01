@@ -3,18 +3,24 @@ alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r
 def encryption(plain_text,shift_key):
     cipher_text=""
     for char in plain_text:
-        position=alphabet.index(char)
-        new_position=(position+shift_key)%26 #MOD 26 BECAUSE WE HAVE ONLY 26 CHARACTERS AND WANT TO STAY WITHIN RANGE
-        cipher_text +=alphabet[new_position]
+        if char in alphabet:
+            position=alphabet.index(char)
+            new_position=(position+shift_key)%26 #MOD 26 BECAUSE WE HAVE ONLY 26 CHARACTERS AND WANT TO STAY WITHIN RANGE
+            cipher_text +=alphabet[new_position]
+        else:
+            cipher_text+=char #FOR ANY UNEXPECTED INPUT IT WILL REMAIN THE SAME
     print(f"Here is the text after encryption: {cipher_text}")
 #HERE THE ENCRYPTION FUNCTION IS COMPLETED.
 
 def decryption(cipher_text,shift_key):
     plain_text=""
     for char in cipher_text:
-        position=alphabet.index(char)
-        new_position=(position-shift_key)%26 #MOD 26 BECAUSE WE HAVE ONLY 26 CHARACTERS AND WANT TO STAY WITHIN RANGE
-        plain_text +=alphabet[new_position]
+        if char in alphabet:
+            position=alphabet.index(char)
+            new_position=(position-shift_key)%26 #MOD 26 BECAUSE WE HAVE ONLY 26 CHARACTERS AND WANT TO STAY WITHIN RANGE
+            plain_text+=alphabet[new_position]
+        else:
+            plain_text+=char
     print(f"Here is the text after decryption: {plain_text}")
 #DECRYPTION FINCTION FINALLY COMPLETED
 
