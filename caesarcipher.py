@@ -9,8 +9,14 @@ def encryption(plain_text,shift_key):
     print(f"Here is the text after encryption: {cipher_text}")
 #HERE THE ENCRYPTION FUNCTION IS COMPLETED.
 
-
-
+def decryption(cipher_text,shift_key):
+    plain_text=""
+    for char in cipher_text:
+        position=alphabet.index(char)
+        new_position=(position-shift_key)%26 #MOD 26 BECAUSE WE HAVE ONLY 26 CHARACTERS AND WANT TO STAY WITHIN RANGE
+        plain_text +=alphabet[new_position]
+    print(f"Here is the text after decryption: {plain_text}")
+#DECRYPTION FINCTION FINALLY COMPLETED
 
 
 
@@ -20,5 +26,5 @@ text=input("Type your message:\n")
 shift=int(input("Enter shift key:\n"))
 if what_to_do=="encrypt":
     result=encryption(plain_text=text,shift_key=shift)
-#elif what_to_do=="decrypt":
- #   decryption(ciphertext,shiftkey)
+elif what_to_do=="decrypt":
+    decryption(text,shift)
